@@ -5,8 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
+    {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="{{ get_url(path='@/_index.md') }}">UWCS</a>
+            <ul>
+                {% set sect = get_section(path='_index.md') %}
+                {% for sub in sect.subsections %}
+                {% set subsect = get_section(path=sub) %}
+                <li><a href="{{ subsect.permalink }}">{{ subsect.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
     {% block content %}
     {% endblock content %}
 </body>
