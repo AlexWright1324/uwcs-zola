@@ -1,14 +1,14 @@
 {% extends "index.html" %}
+{% block pages %}
 {% set var = section.pages | length %}
 {% if not var == 0 %}
-{% block pages %}
 <aside>
     <h2>Links</h2>
     <ul>
         {% for page in section.pages %}
-        <li><a href="{{ page.permalink | safe }}"></a>{{ page.title }}</li>
+        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
         {% endfor %}
     </ul>
 </aside>
-{% endblock pages %}
 {% endif %}
+{% endblock pages %}
