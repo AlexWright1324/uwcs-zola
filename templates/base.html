@@ -7,7 +7,7 @@
     <title>{% block title %}{% endblock title %}</title>
     <link rel="stylesheet" href="/style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Mulish&display=swap');
     </style>
     {% block extra_head %}{% endblock extra_head %}
 </head>
@@ -15,7 +15,7 @@
     <header>
         <nav>
             <div class="center-container">
-                <a href="{{ get_url(path='@/_index.md') }}"><img src="https://uwcs.co.uk/static/img/logo_compact.svg"></a>
+                <a href="{{ get_url(path='@/_index.md') }}"><img src="/assets/logo_compact.svg"></a>
                 <ul>
                     {% set sect = get_section(path='_index.md') %}
                     {% for sub in sect.subsections %}
