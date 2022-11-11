@@ -14,7 +14,7 @@
 <body>
     <header>
         <nav>
-            <div>
+            <div class="center-container">
                 <a href="{{ get_url(path='@/_index.md') }}"><img src="https://uwcs.co.uk/static/img/logo_compact.svg"></a>
                 <ul>
                     {% set sect = get_section(path='_index.md') %}
@@ -26,12 +26,16 @@
             </div>
         </nav>
     </header>
-    {% block pages %}
-    {% endblock pages %}
+    <main class="center-container">
+        <section>
+            {% block content %}
+            {% endblock content %}
+        </section>
+        {% block pages %}
+        {% endblock pages %}
+    </main>
     <footer>
 
     </footer>
-    {% block content %}
-    {% endblock content %}
 </body>
 </html>

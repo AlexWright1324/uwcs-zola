@@ -1,9 +1,8 @@
 {% extends "index.html" %}
 {% block pages %}
-{% set var = section.pages | length %}
-{% if not var == 0 %}
+{% if section.pages %}
 <aside>
-    <h2>Links</h2>
+    <h2>Useful Links</h2>
     <ul>
         {% for page in section.pages %}
         <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
