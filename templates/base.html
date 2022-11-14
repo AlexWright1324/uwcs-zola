@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
     <link rel="stylesheet" href="/style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Mulish&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mulish:wght@400;500;600;700&display=swap');
     </style>
     <title>{% block title %}{% endblock title %}</title>
     {% block extra_head %}{% endblock extra_head %}
@@ -17,6 +17,11 @@
         <nav>
             <div class="center-container">
                 <a href="{{ get_url(path='@/_index.md') }}"><img src="/assets/logo_compact.svg"></a>
+                <label for="nav_toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
                 <ul>
                     {% set sect = get_section(path='_index.md') %}
                     {% for sub in sect.subsections %}
@@ -24,7 +29,16 @@
                     <li><a href="{{ subsect.permalink | safe }}">{{ subsect.title }}</a></li>
                     {% endfor %}
                 </ul>
+
             </div>
+            <input type="checkbox" id="nav_toggle">
+            <ul>
+                {% set sect = get_section(path='_index.md') %}
+                {% for sub in sect.subsections %}
+                {% set subsect = get_section(path=sub) %}
+                <li><a href="{{ subsect.permalink | safe }}">{{ subsect.title }}</a></li>
+                {% endfor %}
+            </ul>
         </nav>
     </header>
     <main class="center-container">

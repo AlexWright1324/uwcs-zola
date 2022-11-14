@@ -3,8 +3,14 @@ body
         margin-top: 0
         font-family: "Montserrat"
         font-weight: 600
+        color: rgb(245, 245, 245)
+        margin-bottom: 20px
     h1
         font-size: 2.5rem
+    h2
+        font-size: 24px
+    h3
+        font-size: 20px
     a
         color: rgb(84, 124, 255)
         text-decoration: none
@@ -18,24 +24,23 @@ body
 
 header > nav
     > div
+        > a
+            padding: 12px !important
+            float: left
+            justify-content: center
+            > img
+                height: 28px
+                overflow: hidden
+                margin: auto
         a
             padding: 8px 12px
             color: white
             height: 100%
             display: flex
             align-items: center
+            box-sizing: border-box
         a:hover
             background-color: #25292c
-        > a
-            height: inherit
-            box-sizing: border-box
-            float: left
-            display: flex
-            justify-content: center
-            > img
-                height: 28px
-                overflow: hidden
-                margin: auto
 
         > ul
             > li
@@ -45,35 +50,94 @@ header > nav
                 align-items: center
             list-style-type: none
             margin: 0
-            padding: 0
-            overflow: hidden
+            padding: 0 16px
             height: 100%
             float: left
+        > label
+            &:hover
+                background-color: rgba(0,0,0,.05)
+            > span
+                &:nth-child(1)
+                    top: calc(50% - 5px)
+                &:nth-child(3)
+                    top: calc(50% + 5px)
+                background-color: #fff
+                width: 16px
+                height: 1px
+                display: block
+                position: absolute
+                top: 50%
+                left: calc(50% - 8px)
+            width: 52px
+            height: 52px
+            display: none
+            float: right
+            position: relative
         max-width: 100%
         height: 52px
-    width: 100%
+        box-sizing: border-box
+        position: relative
+    > input[type=checkbox]
+        &:checked + ul
+            display: block
+        display: none
+    > ul
+        > li
+            > a
+                &:hover
+                    background-color: #25292c
+                    color: #547cff
+                padding: 8px 12px
+                display: block
+                color: #fff
+            padding: 0
+        display: none
+        list-style-type: none
+        margin: 0
+        padding: 16px
+        max-width: 100%
+        background-color: #151718
+        box-shadow: 0 8px 16px rgba(255,255,255,.1)
     background-color: #2d3338
 
 main
     > section
-        grid-area: content
+        flex-grow: 1
     > aside
+        > ul
+            > li > a
+                &:hover
+                    background-color: #151718
+                    color: #fff
+                color: rgb(250, 250, 250)
+                padding: 8px 12px
+            list-style-type: none
+            margin: 0
+            padding: 0
+            line-height: 30px
         padding: 20px
-        grid-area: aside
         background-color: rgb(37, 41, 44)
+        width: 158px
     padding: 48px 24px
-    display: grid
-    grid-template-areas: "content" "aside"
+    display: flex
 
+footer
+    padding: 3rem 1.5rem 6rem
 .center-container
-    max-width: 100%
+    max-width: 85vw
+    margin-left: auto
+    margin-right: auto
 
-@media (min-width: 1088px)
+@media screen and (max-width: 1024px)
+    header > nav > div
+        > label
+            display: block
+        > ul
+            display: none
+        
     .center-container
-        margin-left: auto
-        margin-right: auto
-        max-width: 1088px
-@media (min-width: 769px)
-    main
-        grid-template-columns: auto 200px
-        grid-template-areas: "content aside"
+        max-width: 100%
+
+@media screen and (min-width: 1024px) // Ensure the menu is not visible when button is not visible
+    header > nav > ul
+        display: none !important
