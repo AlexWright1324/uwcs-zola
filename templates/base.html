@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.png">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mulish:wght@400;500;600;700&display=swap');
     </style>
@@ -13,41 +14,27 @@
     {% block extra_head %}{% endblock extra_head %}
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="center-container">
-                <a href="{{ get_url(path='@/_index.md') }}"><img src="/assets/logo_compact.svg"></a>
-                <label for="nav_toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                <ul>
-                    {% set sect = get_section(path='_index.md') %}
-                    {% for sub in sect.subsections %}
-                    {% set subsect = get_section(path=sub) %}
-                    <li><a href="{{ subsect.permalink | safe }}">{{ subsect.title }}</a></li>
-                    {% endfor %}
-                </ul>
-
-            </div>
-            <input type="checkbox" id="nav_toggle">
-            <ul>
-                {% set sect = get_section(path='_index.md') %}
-                {% for sub in sect.subsections %}
-                {% set subsect = get_section(path=sub) %}
-                <li><a href="{{ subsect.permalink | safe }}">{{ subsect.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
-    <main class="center-container">
-        <section>
-            {% block content %}
-            {% endblock content %}
-        </section>
-        {% block pages %}
-        {% endblock pages %}
+    {% include "nav.html" %}
+    <main>
+        <div>
+            <section>
+                {% block content %}
+                {% endblock content %}
+            </section>
+            <aside>
+                {% block pages %}{% endblock pages %}
+                {% block ads %}
+                    <div>
+                        <h3>ADS</h3>
+                        <ul>
+                            <li><a href=""><img src="""></a></li>
+                            <li><a href=""><img src=""></a></li>
+                            <li><a href=""><img src=""></a></li>
+                        </ul>
+                    </div>
+                {% endblock ads %}
+            </aside>
+        </div>
     </main>
     <footer>
 

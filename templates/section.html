@@ -2,14 +2,14 @@
 {% block title %}UWCS | {{ section.title }}{% endblock title %}
 {% block content %}{{ section.content | safe}}{% endblock content%}
 {% block pages %}
-{% if section.pages %}
-<aside>
-    <h3>Useful Links</h3>
-    <ul>
-        {% for page in section.pages %}
-        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-        {% endfor %}
-    </ul>
-</aside>
-{% endif %}
+    {% if section.pages %}
+    <div>
+        <h3>Useful Links</h3>
+        <ul>
+            {% for page in section.pages %}
+            <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 {% endblock pages %}

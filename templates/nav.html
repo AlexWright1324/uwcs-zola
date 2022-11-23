@@ -1,0 +1,18 @@
+<header>
+    
+    <nav>
+        <ul>
+            <li><a href="{{ get_url(path='@/_index.md') }}"><img src="/assets/logo_compact.svg"></a></li>
+            {{ macros::nav_links() }}
+        </ul>
+        <label for="nav_toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+    </nav>
+    <input type="checkbox" id="nav_toggle">
+    <ul>
+        {{ macros::nav_links() }}
+    </ul>
+</header>

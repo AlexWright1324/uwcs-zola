@@ -1,0 +1,7 @@
+{% macro nav_links() %}
+    {% set sect = get_section(path='_index.md') %}
+    {% for sub in sect.subsections %}
+    {% set subsect = get_section(path=sub) %}
+    <li><a href="{{ subsect.permalink | safe }}">{{ subsect.title }}</a></li>
+    {% endfor %}
+{% endmacro nav_links%}

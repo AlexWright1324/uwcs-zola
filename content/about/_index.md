@@ -3,7 +3,7 @@ title = "About"
 weight = 5
 +++
 
-## About the society
+# About the society
 
 About the society
 
